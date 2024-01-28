@@ -1,0 +1,37 @@
+<div class="form-container">
+    <a href="/dashboard">Back</a>
+    <h1>Add Product</h1>
+<form action="/dashboard/add" method="post">
+    <div class="form-group">
+        <label for="productId">Product ID:</label>
+        <input type="text" id="productId" name="productId" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" required>
+    </div>
+
+    <div class="form-group">
+        <label for="featured">Featured:</label>
+        <input type="checkbox" id="featured" name="featured">
+    </div>
+    
+    <div class="form-group">
+        <label for="rating">Rating:</label>
+    <input type="number" id="rating" name="rating" step="0.1" min="0" max="5">
+    </div>
+    
+    <div class="form-group">
+        <label for="company">Company:</label>
+        <input type="text" id="company" name="company" required>
+    </div>
+   
+
+    <button type="submit" class="add-btn">Add Product</button>
+</form>
+</div>

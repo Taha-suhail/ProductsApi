@@ -1,0 +1,22 @@
+<div class="container">
+    <!-- <a href="/dashboard/add">Add+</a> -->
+    <a href="/dashboard">Back</a>
+    <h1>Featured Products</h1>
+  
+      <% if (products && products.length > 0) { %>
+        <div class="product-container">
+          <ul>
+            <% products.forEach(product => { %>
+                <li>
+                    
+                    <a href="/dashboard/product/<%= product.productId %>"><strong><%= product.name %></strong>  Price: <%= product.price %> <span style="float: right; font-size: 20px; text-align: center;">Created At: <%= product.createdAt.toLocaleString() %></span></a> 
+                </li>
+            <% }); %>
+        </ul>
+        </div>
+          
+      <% } else { %>
+          <p>No featured products available right now !. Add a product now</p>
+          <a href="/dashboard/add" class="add-product-btn">Add+</a>
+      <% } %>
+  </div>
