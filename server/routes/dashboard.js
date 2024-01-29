@@ -15,13 +15,13 @@ router.get("/dashboard",isAuthenticated,async(req,res)=>{
     }
    
 })
-
+//route for rendering adding page
 router.get("/dashboard/add",isAuthenticated,(req,res)=>{
     res.render("dashboard/add",{
         layout:dashboardPage
     })
 })
-
+//route for adding new products in the dashboard
 router.post("/dashboard/add",async(req,res)=>{
     try {
         const newProductData = req.body;
@@ -40,6 +40,7 @@ router.post("/dashboard/add",async(req,res)=>{
         console.log("Error adding product")
     }
 })
+//route for rendering update page
 router.get('/dashboard/product/:productId', async (req, res) => {
     try {
         const productId = req.params.productId;
@@ -57,6 +58,7 @@ router.get('/dashboard/product/:productId', async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
+//updating the product and redirecting to dashboard
 router.put("/dashboard/product/update/:productId",async(req,res)=>{
     try {
         const productId = req.params.productId;
@@ -70,7 +72,7 @@ router.put("/dashboard/product/update/:productId",async(req,res)=>{
         console.log(error);
     }
 })
-
+//delete a product
 router.delete("/dashboard/product/delete/:productId",async(req,res)=>{
     try {
         const productId = req.params.productId;
@@ -82,6 +84,7 @@ router.delete("/dashboard/product/delete/:productId",async(req,res)=>{
    
     
 })
+//route for rendering products that are featured and rendering the featured tab
 router.get("/dashboard/featured",async(req,res)=>{
     try {
         const featuredProducts = await product.find({featured:true});
